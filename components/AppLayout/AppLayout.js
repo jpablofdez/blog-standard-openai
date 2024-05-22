@@ -6,6 +6,8 @@ import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useEffect } from 'react';
 import PostsContext from '../../context/postsContext'
+import { Nav } from '../Nav';
+
 export const AppLayout = ({
     children, 
     availableTokens,
@@ -29,10 +31,16 @@ export const AppLayout = ({
     
 
     return(
+        <div>
+
+        <Nav />
         <div className="grid grid-cols-[300px_1fr] h-screen max-h-screen">
             <div className="flex flex-col text-white overflow-hidden">
                 <div className="bg-slate-800 px-2">
                     <Logo />
+
+                   
+
                     <Link href="/post/new" className="btn">
                         New post
                     </Link>
@@ -86,6 +94,7 @@ export const AppLayout = ({
             </div>
 
             {children}
+        </div>
         </div>
     );
 };

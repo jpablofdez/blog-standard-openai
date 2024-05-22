@@ -4,8 +4,10 @@ import { getAppProps } from '../utils/getAppProps';
 
 export default function Success() {
   return (
-    <div>
+    <div className="grid grid-cols-[600px_1fr] h-screen max-h-screen">
+    <div className='centered'>
       <h1>Thank you for your purchase!</h1>
+    </div>
     </div>
   );
 }

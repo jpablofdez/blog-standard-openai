@@ -11,7 +11,6 @@ export default function TokenTopup() {
     console.log('result: ', json);
     window.location.href = json.session.url;
     /**
-    const result = await fetch(`/api/addTokens`, {
       method: 'POST',
     });
     const json = await result.json();
@@ -21,12 +20,26 @@ export default function TokenTopup() {
   };
 
     return (
-    <div>
-      <h1>this is the token topup</h1>
-      <button className="btn" onClick={handleClick}>
-        Add tokens
-      </button>
+      <div class="relative">
+        <div class="px-14">
+         <h3>Load the token topup</h3>
+         </div>
+
+        <div class="flex">
+
+        <div class="flex-none w-14 h-14 ...">
+        </div>
+        <div class="grow h-14 ...">
+        <button className="btn" onClick={handleClick}>
+                 Add tokens
+               </button>
+        </div>
+        <div class="flex-none w-14 h-14 ...">
+       
+        </div>
+        </div>
     </div>
+
     );
   }
   TokenTopup.getLayout = function getLayout(page, pageProps) {

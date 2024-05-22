@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function NewPost(props) {
   //console.log("NEW POST PROPS: ", props);
-  const [postContent, setPostContent]= useState("");
+  //const [postContent, setPostContent]= useState("");
   const router = useRouter();
   const [topic, setTopic] = useState('');
   const [keywords, setKeywords] = useState('');
@@ -18,7 +18,7 @@ export default function NewPost(props) {
     setGenerating(true);
     try {
     e.preventDefault();
-    
+    console.log('antest: 1');
     const response = await fetch(`/api/generatePost`, {
       method: 'POST',
       headers: {
@@ -26,6 +26,7 @@ export default function NewPost(props) {
       },
       body: JSON.stringify({ topic, keywords }),
     });
+    console.log('antest: 2',response);
     const json = await response.json();
     console.log('RESULT: ', json);
     if (json?.postId) {
@@ -57,7 +58,7 @@ export default function NewPost(props) {
                       className="resize-none border border-slate-500 w-full block my-2 px-4 py-2 rounded-sm"
                       value={topic}
                       onChange={(e) => setTopic(e.target.value)}
-                      maxLength={80}
+                      maxLength={150}
                     />
                 </div>
                 <div>

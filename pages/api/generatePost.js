@@ -27,13 +27,13 @@ export default withApiAuthRequired (async function handler(req, res) {
       return;
     }
   
-    if (topic.length > 80 || keywords.length > 80) {
+    if (topic.length > 150 || keywords.length > 80) {
       res.status(422);
       return;
     }
     
     const response =  await openai.createCompletion({
-    model: 'text-davinci-003',
+    model: 'gpt-3.5-turbo-instruct',
     temperature: 0,
     max_tokens: 3600,
     prompt: `Write a long and detailed SEO-friendly blog post about ${topic}, that targets the following comma-separated keywords: ${keywords}.
