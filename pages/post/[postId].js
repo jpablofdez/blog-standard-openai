@@ -1,5 +1,8 @@
 import { getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { AppLayout } from '../../components/AppLayout';
+import { Nav } from '../../components/Nav';
+
+
 import { ObjectId } from 'mongodb';
 import clientPromise from '../../lib/mongodb';
 import { faHashtag } from '@fortawesome/free-solid-svg-icons';
