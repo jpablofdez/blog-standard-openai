@@ -21,6 +21,7 @@ export const AppLayout = ({
 
     useEffect(() => {
         setPostsFromSSR(postsFromSSR);
+        console.log("applayaout: ",availableTokens);
         if (postId) {
           const exists = postsFromSSR.find((post) => post._id === postId);
           if (!exists) {
@@ -33,7 +34,7 @@ export const AppLayout = ({
     return(
         <div>
 
-        <Nav />
+        <Nav availableTokens={availableTokens} postsFromSSR={postsFromSSR} postId= {postId} postCreated= {postCreated} />
         
         <div className="flex flex-col justify-start item-center h-screen max-h-screen">
             

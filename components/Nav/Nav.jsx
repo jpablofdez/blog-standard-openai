@@ -41,6 +41,7 @@ export const Nav = ({
 
   useEffect(() => {
       setPostsFromSSR(postsFromSSR);
+     
       if (postId) {
         const exists = postsFromSSR.find((post) => post._id === postId);
         if (!exists) {
@@ -48,21 +49,7 @@ export const Nav = ({
         }
       }
     }, [postsFromSSR, setPostsFromSSR, postId,postCreated, getPosts]);
-
-    const menuItems = [
-      "Profile",
-      "Dashboard",
-      "Activity",
-      "Analytics",
-      "System",
-      "Deployments",
-      "My Settings",
-      "Team Settings",
-      "Help & Feedback",
-      "Log Out",
-    ];
-
-   
+ 
   return (
    <div> 
     <Logo />
@@ -81,9 +68,10 @@ export const Nav = ({
          </DisclosureButton>
         
 
-          <div className="p-6 w-1/2 h-screen bg-white z-20 fixed top-0 
-          -left-96 lg:left-0 lg:w-60  
-          peer:transition ease-out delay-150 duration-200">
+          <div className="p-6 w-1/4 h-screen bg-white z-20 fixed top-0 
+          -left-96 lg:left-0  " >
+
+
 
           <div className="flex flex-col justify-start item-center">
           <h1 className="text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
@@ -99,7 +87,7 @@ export const Nav = ({
 
           </div>
           <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-          <CgProfile className="text-2xl text-gray-600 group-hover:text-white " />
+          
           <Link href="/token-topup" className="block mt-2 text-center">
           <FontAwesomeIcon icon={faCoins} className="text-yellow-500" />
           <span className="pl-1">{availableTokens} tokens available</span>
@@ -115,6 +103,7 @@ export const Nav = ({
               postId === post._id ? 'bg-white/20 border-white' : ''
           }`}
           >
+
           {post.topic}
           </Link>
           ))}
@@ -172,7 +161,7 @@ export const Nav = ({
                  className="origin-top"
                >
            <div className="p-6 w-1/2 h-screen bg-white z-20 fixed top-0 
-          lg:left-0 lg:w-60  
+          left-0 w-70  
           peer:transition ease-out delay-150 duration-200">
 
           <div className="flex flex-col justify-start item-center">
