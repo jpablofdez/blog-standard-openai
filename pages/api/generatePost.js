@@ -1,6 +1,10 @@
 import { getSession, withApiAuthRequired } from '@auth0/nextjs-auth0';
-import { Configuration, OpenAIApi } from 'openai';
+//import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 import clientPromise from '../../lib/mongodb';
+
+import { useEffect, useState } from "react"
+
 
 export default withApiAuthRequired (async function handler(req, res) {
 
@@ -16,10 +20,18 @@ export default withApiAuthRequired (async function handler(req, res) {
     return;
   }
 
+
+// New
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+});
+/*
     const config = new Configuration({
         apiKey: process.env.OPENAI_API_KEY
       });
     const openai = new OpenAIApi(config);
+*/
+
     const { topic, keywords } = req.body;
 
     if (!topic || !keywords) {
@@ -32,7 +44,8 @@ export default withApiAuthRequired (async function handler(req, res) {
       return;
     }
     
-    const response =  await openai.createCompletion({
+    const response = await openai.completions.create({
+
     model: 'gpt-3.5-turbo-instruct',
     temperature: 0,
     max_tokens: 3600,
@@ -152,7 +165,7 @@ export default withApiAuthRequired (async function handler(req, res) {
   );
 
   const parsed = JSON.parse(
-    response.data.choices[0]?.text.split("\n").join("")
+    response.choices[0]?.text.split("\n").join("")
     );
   
   const post = await db.collection('posts').insertOne({

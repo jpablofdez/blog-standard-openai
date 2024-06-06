@@ -34,7 +34,7 @@ export const AppLayout = ({
     return(
         <div>
 
-        <Nav availableTokens={availableTokens} postsFromSSR={postsFromSSR} postId= {postId} postCreated= {postCreated} />
+        <Nav   availableTokens={availableTokens}/>
         
         <div className="flex flex-col justify-start item-center h-screen max-h-screen">
             
