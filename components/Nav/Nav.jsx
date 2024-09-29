@@ -69,7 +69,7 @@ export const Nav = ({
         
 
           <div className="p-6 w-1/4 h-screen bg-white z-20 fixed top-0 
-          -left-96 lg:left-0  " >
+          -left-96 lg:left-0  vertical-scrollable" >
 
 
 
