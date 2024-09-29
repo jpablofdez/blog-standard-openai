@@ -46,7 +46,7 @@ const openai = new OpenAI({
     
     const response = await openai.completions.create({
 
-    model: 'gpt-3.5-turbo-instruct',
+    model: 'gpt-3.5-turbo-11060cd',
     temperature: 0,
     max_tokens: 3600,
     prompt: `Write a long and detailed SEO-friendly blog post about ${topic}, that targets the following comma-separated keywords: ${keywords}.
